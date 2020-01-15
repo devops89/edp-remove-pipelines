@@ -22,7 +22,7 @@ def call() {
 
     node("master") {
         stage("Init") {
-            final String EDP_DEPLOY_PROJECT = "edp-deploy"
+            def EDP_DEPLOY_PROJECT = params.DEPLOY_PROJECT ? params.DEPLOY_PROJECT : "edp-deploy"
 
             if (params.RESOURCES_VERSION_2) {
                 context.stageCR = "stage.v2"
