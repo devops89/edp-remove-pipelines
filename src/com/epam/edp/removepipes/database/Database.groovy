@@ -266,7 +266,7 @@ class Database {
         ArrayList databaseListCommand = [
                 "delete from codebase_action_log where codebase_id = \'$codebaseId\';",
                 "delete from cd_pipeline_codebase_branch where codebase_branch_id = \'$codebaseId\';",
-                "delete from codebase_docker_stream where codebase_id = \'$codebaseId\';",
+                //"delete from codebase_docker_stream where codebase_id = \'$codebaseId\';",
                 "delete from codebase where id = \'$codebaseId\';",
         ]
 
