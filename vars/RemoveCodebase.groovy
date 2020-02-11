@@ -60,7 +60,7 @@ def call() {
             }
             context.codebaseType = context.database.getCodebaseType(context.projectName, context.codebase)
         }
-        stage("Check that codebase is not in use") {
+/*        stage("Check that codebase is not in use") {
             ArrayList cdPipelines
             String errorMessage
             switch (context.codebaseType) {
@@ -83,6 +83,7 @@ def call() {
                 error errorMessage
             }
         }
+ */    
         stage("Remove codebase branches") {
             context.database.getCodebaseBranches(context.projectName, context.codebase).each { branch ->
                 new OpenshiftResource(context.codebaseBranchCR, "${context.codebase}-${branch}", this).remove()
