@@ -124,7 +124,6 @@ class Database {
         if (isV2) {
             command = """
             select c.name from cd_pipeline cp
-            left join cd_pipeline_docker_stream cpds on cp.id = cpds.cd_pipeline_id
             left join codebase_docker_stream cds on cpds.codebase_docker_stream_id = cds.id
             left join codebase c on cds.codebase_id = c.id
             where cp.name = '${pipelineName}';
@@ -203,7 +202,6 @@ class Database {
             select cp.name 
             from codebase_branch cb
                 left join codebase_docker_stream cds on cb.id = cds.codebase_branch_id
-                left join cd_pipeline_docker_stream cpds on cds.id = cpds.codebase_docker_stream_id
                 right join cd_pipeline cp on cpds.cd_pipeline_id = cp.id
             where cb.name = '${codebaseBranch}' and cb.codebase_id = '${codebaseId}';
             """
@@ -312,7 +310,6 @@ class Database {
             select cp.name 
             from codebase c
                 left join codebase_docker_stream cds on c.id = cds.codebase_id
-                left join cd_pipeline_docker_stream cpds on cds.id = cpds.codebase_docker_stream_id
                 right join cd_pipeline cp on cpds.cd_pipeline_id = cp.id
             where c.name = '${codebaseName}';            
             """
