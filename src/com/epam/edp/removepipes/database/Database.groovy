@@ -111,7 +111,7 @@ class Database {
 
     /* CD PIPELINE RELATED REQUESTS */
 
-    String getPipelineId(String projectName, String pipelineName) {
+/*    String getPipelineId(String projectName, String pipelineName) {
         invokeCommand(projectName, "select id from cd_pipeline where name=\'$pipelineName\';")[2]
     }
 
@@ -158,7 +158,7 @@ class Database {
             invokeCommand(projectName, command)
         }
     }
-
+*/
     /* CODEBASE BRANCH RELATED REQUESTS */
 
     ArrayList getCodebaseBranches(String projectName, String codebaseName) {
