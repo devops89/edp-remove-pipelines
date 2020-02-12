@@ -34,7 +34,7 @@ def call() {
 
             context.database = new Database(EDP_DEPLOY_PROJECT, this)
             context.database.init()
-/*
+
             if (!params.INTERACTIVE_MODE) {
                 context.cdPipeline = params.CD_PIPELINE
                 context.cdStage = params.CD_STAGE
@@ -65,7 +65,7 @@ def call() {
                 if (context.cdStage == "No_deletion")
                     error "Deletion aborted"
             }
-*/            
+            
         }
         stage("Remove stage custom resource") {
             new OpenshiftResource(context.stageCR, "${context.cdPipeline}-${context.cdStage}", this).remove()
