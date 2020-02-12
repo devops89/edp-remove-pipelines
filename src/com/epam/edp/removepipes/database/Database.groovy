@@ -91,7 +91,7 @@ class Database {
         ArrayList databaseListCommand = [
                 "delete from cd_stage_action_log where cd_stage_id = \'$stageId\';",
                 "delete from cd_stage_codebase_branch where cd_stage_id =\'$stageId\';",
-                "delete from stage_codebase_docker_stream where cd_stage_id =\'$stageId\';",
+                //"delete from stage_codebase_docker_stream where cd_stage_id =\'$stageId\';",
                 "delete from cd_stage where id =\'$stageId\';",
         ]
 
@@ -124,7 +124,6 @@ class Database {
         if (isV2) {
             command = """
             select c.name from cd_pipeline cp
-            left join codebase_docker_stream cds on cpds.codebase_docker_stream_id = cds.id
             left join codebase c on cds.codebase_id = c.id
             where cp.name = '${pipelineName}';
             """
